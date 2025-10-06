@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align:center; color:#6a1b9a;">📘Welcome to Attendance Management System</h1>
+<p style="text-align:center; font-size:18px;">Select your role to continue:</p>
+
+<div style="display:flex; justify-content:center; gap:20px; margin-top:30px;">
+    <a href="/login"><button style="width:200px;">👩‍🏫 Teacher Login</button></a>
+    <a href="/login"><button style="width:200px;">🧑‍💼 Admin Login</button></a>
+</div>
+<form action="/student/view" method="GET">
+    <button type="submit" class="student-button">🎓 View Student Attendance</button>
+</form>
+
+<div style="margin-top:50px; text-align:center; font-size:14px; color:#888;">
+    <p>Built by Lesriya • Powered by Flask + SQLite</p>
+</div>
+{% endblock %}

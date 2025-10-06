@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/" method="GET" style="position: absolute; top: 20px; left: 20px;">
+    <button type="submit" style="
+        padding: 8px 16px;
+        background-color: #6a1b9a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+    ">
+        🔙 Back to Home
+    </button>
+</form>
+
+<h2 style="color:#6a1b9a;">👩‍🏫 Teacher Dashboard</h2>
+<h2>Welcome, {{ teacher.name }}</h2>
+
+<!-- Add this below your student list or at the top -->
+<form action="/student" method="GET">
+    <button type="submit" style="
+        padding: 10px 20px;
+        background-color: #2e7d32;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    ">📋 View Attendance Records</button>
+</form>
+
+
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin: 20px 0; gap: 20px;">
+    <div><strong>👩‍🏫 Name:</strong> {{ teacher.name }}</div>
+    <div><strong>📘 Subject:</strong> {{ teacher.subject }}</div>
+    <div><strong>🏫 Class:</strong> {{ teacher.class }}</div>
+    <div><strong>📅 Date:</strong> {{ current_date }}</div>
+</div>
+
+
+<hr style="margin:30px 0;">
+
+<h3 style="color:#6a1b9a;">📝 Mark Attendance</h3>
+<form method="POST" action="/teacher/mark">
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Roll No</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in students %}
+            <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.roll_no }}</td>
+                <td>
+                    <select name="{{ s.id }}">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit" style="margin-top:20px;">✅ Submit Attendance</button>
+</form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/" method="GET" style="position: absolute; top: 20px; left: 20px;">
+    <button type="submit" style="
+        padding: 8px 16px;
+        background-color: #6a1b9a;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+    ">
+        🔙 Back to Home
+    </button>
+</form>
+<h2>Login</h2>
+<form method="POST">
+
+    <form method="POST" action="/login">
+    <label for="role">Login as:</label>
+
+    <select name="role" required>
+        <option value="admin">Admin</option>
+        <option value="teacher">Teacher</option>
+    </select>
+
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}
