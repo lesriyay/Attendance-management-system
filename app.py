@@ -3,7 +3,7 @@ import sqlite3, os
 from datetime import date
 
 app = Flask(__name__)
-app.secret_key = 'secret'
+app.secret_key = 'secret' 
 
 def get_db():
     conn = sqlite3.connect('attendance.db')
@@ -156,4 +156,5 @@ def edit_teacher(teacher_id):
     return render_template('edit_teacher.html', teacher=teacher)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
+    hello
